@@ -1,18 +1,38 @@
-//
-//  ButtonsView.swift
-//  Knowledge
-//
-//  Created by Francesco Silvestro on 06/12/24.
-//
-
 import SwiftUI
 
-struct ButtonsView: View {
+
+
+struct ButtonView: View {
+    
+    @State var iconOnly: Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            // Section with Toggle
+            Section {
+                HStack {
+                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/labelstyle/icononly")!) {
+                        Image(systemName: "info.circle")
+                    }
+                    
+                    Toggle(isOn: $iconOnly) {
+                        Text("Icon Only")
+                    }
+                }
+            }
+            
+            // Button with conditional label style
+            Button {
+                print("Button tapped")
+            } label: {
+                Label("Add Item", systemImage: "plus") // Button label
+            }
+            .labelStyle(ConditionalLabelStyle(showIconOnly: iconOnly)) // Use custom label style
+        }
+        .padding()
     }
 }
 
 #Preview {
-    ButtonsView()
+    ButtonView()
 }
