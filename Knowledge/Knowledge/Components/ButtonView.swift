@@ -26,6 +26,14 @@ struct ButtonView: View {
     }
     @State private var selectedButtonRepeatBehavior: ButtonRepeatBehaviorCase = .automatic
     
+    
+    //Button Shape
+    enum ButtonShapeCase: Hashable, Sendable {
+        case automatic, capsule, circle, roundedRectangle
+        var id: Self { self }
+    }
+    @State private var selectedButtonShapeCase: ButtonShapeCase = .capsule
+    
     var body: some View {
         VStack {
             //Icon selection
@@ -92,6 +100,25 @@ struct ButtonView: View {
                 }
                 
                 
+                //Button Shape
+                HStack {
+                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/buttonbordershape")!) {
+                        Image(systemName: "info.circle")
+                    }
+                    
+                    Text("Button Shape")
+                    Spacer()
+                    Picker("Button Shape", selection: $selectedButtonShapeCase) {
+                        Text("Automatic").tag(ButtonShapeCase.automatic)
+                        Text("Capsule").tag(ButtonShapeCase.capsule)
+                        Text("Circle").tag(ButtonShapeCase.circle)
+                        Text("RoundedRectangle").tag(ButtonShapeCase.roundedRectangle)
+                        
+                    }
+                    .pickerStyle(.menu)
+                }
+                
+                
             }
             
             // Button with conditional label style
@@ -104,6 +131,7 @@ struct ButtonView: View {
             .applyButtonStyle(for: selectedButtonStyle) // Apply button style dynamically
             .applyControlSize(for: selectedControlSize)
             .applyButtonRepeatBehavior(for: selectedButtonRepeatBehavior)
+            .applyButtonShape(for: selectedButtonShapeCase)
            
         }
         .padding()

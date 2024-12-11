@@ -123,3 +123,26 @@ extension View {
         }
     }
 }
+
+
+//Added the buttonRepeatBehavior selection dinamically
+
+
+extension View {
+    func applyButtonShape (for shape: ButtonView.ButtonShapeCase) -> some View {
+        switch shape {
+            
+        case .automatic:
+            return self.buttonBorderShape(.automatic)
+            
+        case .capsule:
+            return self.buttonBorderShape(.capsule)
+            
+        case .circle:
+            return self.buttonBorderShape(.circle)
+            
+        case .roundedRectangle:
+            return self.buttonBorderShape(.roundedRectangle)
+        }
+    }
+}
