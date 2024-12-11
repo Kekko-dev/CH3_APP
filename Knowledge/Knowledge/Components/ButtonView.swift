@@ -19,8 +19,12 @@ struct ButtonView: View {
     @State private var selectedControlSize: ControlSizeCase = .regular
     
    
-    
-    
+    //ButtonRepeatBehavior
+    enum ButtonRepeatBehaviorCase: Hashable, Sendable {
+        case automatic, enabled, disabled
+        var id: Self { self }
+    }
+    @State private var selectedButtonRepeatBehavior: ButtonRepeatBehaviorCase = .automatic
     
     var body: some View {
         VStack {
@@ -69,6 +73,24 @@ struct ButtonView: View {
                     .pickerStyle(.menu)
                 }
                 
+                //ButtonRepeatBehavior
+                
+                HStack {
+                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/buttonrepeatbehavior")!) {
+                        Image(systemName: "info.circle")
+                    }
+                    
+                    Text("Button Repeat Behavior")
+                    Spacer()
+                    Picker("Button Repeat Behavior", selection: $selectedButtonRepeatBehavior) {
+                        Text("Automatic").tag(ButtonRepeatBehaviorCase.automatic)
+                        Text("Enabled").tag(ButtonRepeatBehaviorCase.enabled)
+                        Text("Disabled").tag(ButtonRepeatBehaviorCase.disabled)
+                        
+                    }
+                    .pickerStyle(.menu)
+                }
+                
                 
             }
             
@@ -81,7 +103,8 @@ struct ButtonView: View {
             .labelStyle(ConditionalLabelStyle(showIconOnly: iconOnly)) // Use custom label style
             .applyButtonStyle(for: selectedButtonStyle) // Apply button style dynamically
             .applyControlSize(for: selectedControlSize)
-            .buttonRepeatBehavior(.enabled)
+            .applyButtonRepeatBehavior(for: selectedButtonRepeatBehavior)
+           
         }
         .padding()
     }

@@ -109,3 +109,17 @@ extension View {
 }
 
 //Added the controlSize picker function with the same logic, 'cause it said as an error that AnyView has no member "appluControlSize" so I added one without going in conflict of return types
+
+
+extension View {
+    func applyButtonRepeatBehavior (for behavior: ButtonView.ButtonRepeatBehaviorCase) -> some View {
+        switch (behavior){
+        case .automatic:
+            return self.buttonRepeatBehavior(.automatic)
+        case .enabled:
+            return self.buttonRepeatBehavior(.enabled)
+        case .disabled:
+            return self.buttonRepeatBehavior(.disabled)
+        }
+    }
+}
