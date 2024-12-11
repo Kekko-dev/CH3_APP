@@ -88,6 +88,24 @@ extension View {
  
  */
 
+extension View {
+    
+     func applyControlSize (for size: ButtonView.ControlSizeCase) -> some View {
+        switch (size){
+        case .mini:
+            return self.controlSize(.mini)
+        case .small:
+            return self.controlSize(.small)
+        case .regular:
+            return self.controlSize(.regular)
+        case .large:
+            return self.controlSize(.large)
+        case .extraLarge:
+            return self.controlSize(.extraLarge)
+        }
+        
+    }
+    
+}
 
-
-
+//Added the controlSize picker function with the same logic, 'cause it said as an error that AnyView has no member "appluControlSize" so I added one without going in conflict of return types
