@@ -53,7 +53,7 @@ struct ButtonView: View {
                 
                 //Button Size
                 HStack {
-                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/view/buttonstyle(_:)")!) {
+                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/view/controlsize(_:)")!) {
                         Image(systemName: "info.circle")
                     }
                     
@@ -81,6 +81,7 @@ struct ButtonView: View {
             .labelStyle(ConditionalLabelStyle(showIconOnly: iconOnly)) // Use custom label style
             .applyButtonStyle(for: selectedButtonStyle) // Apply button style dynamically
             .applyControlSize(for: selectedControlSize)
+            .buttonRepeatBehavior(.enabled)
         }
         .padding()
     }
