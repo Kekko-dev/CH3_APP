@@ -18,7 +18,7 @@ struct ButtonView: View {
     }
     @State private var selectedControlSize: ControlSizeCase = .regular
     
-   
+    
     //ButtonRepeatBehavior
     enum ButtonRepeatBehaviorCase: Hashable, Sendable {
         case automatic, enabled, disabled
@@ -39,14 +39,22 @@ struct ButtonView: View {
             //Icon selection
             Section {
                 HStack {
-                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/labelstyle/icononly")!) {
-                        Image(systemName: "info.circle")
-                    }
+                    DocumentationLink(
+                        url: URL(string: "https://developer.apple.com/documentation/swiftui/labelstyle/icononly")!,
+                        label: "More information about Icon Only settings"
+                    )
+                    
+                    
                     
                     Toggle(isOn: $iconOnly) {
                         Text("Icon Only")
                     }
+                    
+                    
                 }
+                .accessibilityElement(children: .combine) // Combine all elements into one
+                
+                
                 //ButtonStyle Picker
                 HStack {
                     Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/view/buttonstyle(_:)")!) {
@@ -132,14 +140,34 @@ struct ButtonView: View {
             .applyControlSize(for: selectedControlSize)
             .applyButtonRepeatBehavior(for: selectedButtonRepeatBehavior)
             .applyButtonShape(for: selectedButtonShapeCase)
-           
+            
         }
         .padding()
     }
     
     
+}
+
+struct DocumentationLink: View {
+    let url: URL
+    let label: String
+
+    var body: some View {
+        Image(systemName: "info.circle")
+            .foregroundColor(.blue) // Icon styling
+            .accessibilityLabel(label)
+            .accessibilityHint("Double-tap, or select Open Documentation from the rotor.")
+            .accessibilityAddTraits(.isButton)
+            .accessibilityAction(named: "Open Documentation") {
+                openLink()
+            }
     }
 
+    // Function to open the URL
+    private func openLink() {
+        UIApplication.shared.open(url)
+    }
+}
 
 
 
