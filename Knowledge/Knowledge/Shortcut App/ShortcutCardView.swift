@@ -8,26 +8,34 @@
 import SwiftUI
 
 struct ShortcutCardView: View {
-    var index: Int
-    
-    var body: some View {
-        VStack {
-            Image(systemName: "star.fill") // Example icon
-                .resizable()
-                .scaledToFit()
-                .frame(width: 50, height: 50)
-                .foregroundColor(.yellow)
-            
-            Text("Shortcut \(index + 1)")
-                .font(.caption)
-                .foregroundColor(.primary)
-        }
-        .frame(width: 100, height: 100)
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue))
-        .shadow(radius: 5)
-    }
+   
+   var icon : String
+   var title : String
+   
+   var body: some View {
+       VStack {
+           Image(systemName: icon ) // Example icon
+               .resizable()
+               .scaledToFit()
+               .frame(width: 50, height: 50)
+               .foregroundColor(.white)
+               .padding(.trailing, 95)
+           
+           
+           Text(title)
+               .font(.headline)
+               .fontWeight(.heavy)
+               .foregroundColor(.white)
+               .padding(.top, 50)
+               .padding(.trailing, 89)
+           
+       }
+       .frame(width: 160, height: 150)
+       .background(RoundedRectangle(cornerRadius: 25).fill(Color.blue))
+       
+   }
 }
 
 #Preview {
-    ShortcutGridView()
+   ShortcutCardView(icon: "button.horizontal", title: "Button")
 }
