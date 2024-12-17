@@ -146,3 +146,86 @@ extension View {
         }
     }
 }
+
+
+
+
+
+//                          PICKER VIEW
+
+ func createPicker (value : Binding<Pickers.PickerValue> ,style: Pickers.pickerStyleType) -> some View {
+    Group{
+        switch style {
+            
+        case .automatic:
+             Picker("Picker Value", selection: value) {
+                Text("Chocolate").tag((Pickers.PickerValue.Chocolate))
+                Text("Vanilla").tag((Pickers.PickerValue.Vanilla))
+                Text("Strawberry").tag((Pickers.PickerValue.Strawberry))
+            }
+            .pickerStyle(.automatic)
+        case .wheel:
+             Picker("Picker Value", selection: value) {
+                Text("Chocolate").tag((Pickers.PickerValue.Chocolate))
+                Text("Vanilla").tag((Pickers.PickerValue.Vanilla))
+                Text("Strawberry").tag((Pickers.PickerValue.Strawberry))
+            }
+            .pickerStyle(.wheel)
+            
+        case .segmented:
+             Picker("Picker Value", selection: value) {
+                Text("Chocolate").tag((Pickers.PickerValue.Chocolate))
+                Text("Vanilla").tag((Pickers.PickerValue.Vanilla))
+                Text("Strawberry").tag((Pickers.PickerValue.Strawberry))
+            }
+            .pickerStyle(.segmented)
+            
+        case .menu:
+             Picker("Picker Value", selection: value) {
+                Text("Chocolate").tag((Pickers.PickerValue.Chocolate))
+                Text("Vanilla").tag((Pickers.PickerValue.Vanilla))
+                Text("Strawberry").tag((Pickers.PickerValue.Strawberry))
+            }
+            .pickerStyle(.menu)
+            
+        case .inline:
+             Picker("Picker Value", selection: value) {
+                Text("Chocolate").tag((Pickers.PickerValue.Chocolate))
+                Text("Vanilla").tag((Pickers.PickerValue.Vanilla))
+                Text("Strawberry").tag((Pickers.PickerValue.Strawberry))
+            }
+            .pickerStyle(.inline)
+            
+        }
+    }
+}
+
+/*
+ I created this function, a little bit mechanic, because if I created this feature as the buttons functions it went in some conflict. This function takes as parameters:
+ 1) value: Need to be binded 'cause it changes the value with a State variable and needs to reflect it in the view
+ 2) style: Even if the style is a state value, in this function it doesn't need to be binded because it doesn't need to reflect the changes between the views but just sets the switch
+ 
+ */
+
+
+/*
+                                PREVIOUS FUNCTION IMPLEMENTED
+ 
+ func pickerStyle(for style: Pickers.PickerStyleType) -> some View {
+         switch style {
+         case .automatic:
+             return self.pickerStyle(.automatic)
+         case .inline:
+             return self.pickerStyle(.inline)
+         case .wheel:
+             return self.pickerStyle(.wheel)
+         case .segmented:
+             return self.pickerStyle(.segmented)
+         case .menu:
+             return self.pickerStyle(.menu)
+         }
+     }
+ 
+                                        DOESN'T WORK
+ 
+ */
