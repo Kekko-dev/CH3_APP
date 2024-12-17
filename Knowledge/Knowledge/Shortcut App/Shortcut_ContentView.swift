@@ -26,6 +26,8 @@ struct Shortcut_ContentView: View {
                                 ShortcutCardView(icon: "button.horizontal", title: "Button", color: .blue)
                                     .padding(.bottom)
                                     .padding(.horizontal)
+                                    
+                                    
                             }
                             NavigationLink(destination: Pickers()){
                                 ShortcutCardView(icon: "rectangle.on.rectangle.angled", title: "Picker", color: .red)

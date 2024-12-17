@@ -78,7 +78,7 @@ struct ButtonView: View {
                 }
                 .accessibilityElement(children: .combine) // Combine the HSTACK for the VoiceOver
                 .accessibilityLabel("Button Style, current selection \(selectedButtonStyle.rawValue)")
-                .accessibilityHint("Scroll to open documentation")
+                .accessibilityHint("Swipe up or down to open the documentation.")
                 
                 //Button Size
                 HStack {
@@ -100,8 +100,8 @@ struct ButtonView: View {
                     .pickerStyle(.menu)
                 }
                 .accessibilityElement(children: .combine) // Combine the HSTACK for the VoiceOver
-                .accessibilityLabel("Button Style, current selection \(String(describing: selectedControlSize))")
-                .accessibilityHint("Scroll to open documentation")
+                .accessibilityLabel("Button Sizee, current selection \(String(describing: selectedControlSize))")
+                .accessibilityHint("Swipe up or down to open the documentation.")
                 
                 //ButtonRepeatBehavior
                 
@@ -124,6 +124,8 @@ struct ButtonView: View {
                     .pickerStyle(.menu)
                 }
                 .accessibilityElement(children: .combine)
+                .accessibilityLabel("Button Repeat Behavior, currently \(String(describing: selectedButtonRepeatBehavior))")
+                .accessibilityHint("Swipe up or down to open the documentation.")
                 
                 //Button Shape
                 HStack {
@@ -146,7 +148,7 @@ struct ButtonView: View {
                 }
                 .accessibilityElement(children: .combine)
                                 .accessibilityLabel("Button Shape, currently \(String(describing: selectedButtonShapeCase))")
-                                .accessibilityHint("Swipe up or down to change the button shape.")
+                                .accessibilityHint("Swipe up or down to open the documentation.")
                 
             }
             .padding(10)
@@ -163,7 +165,16 @@ struct ButtonView: View {
             .applyControlSize(for: selectedControlSize)
             .applyButtonRepeatBehavior(for: selectedButtonRepeatBehavior)
             .applyButtonShape(for: selectedButtonShapeCase)
-            
+            .accessibilityElement(children: .combine)
+                        .accessibilityLabel("Add Item button")
+                        .accessibilityValue(
+                            "Icon Only: \(iconOnly ? "Enabled" : "Disabled"), " +
+                            "Style: \(selectedButtonStyle.rawValue), " +
+                            "Size: \(String(describing: selectedControlSize)), " +
+                            "Repeat Behavior: \(String(describing: selectedButtonRepeatBehavior)), " +
+                            "Shape: \(String(describing: selectedButtonShapeCase))"
+                        )
+                        .accessibilityHint("Double tap to activate.")
         }
         
         Spacer()

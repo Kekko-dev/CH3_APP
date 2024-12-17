@@ -58,7 +58,8 @@ struct Pickers: View {
                 
             }
             .accessibilityElement(children: .combine)
-            
+            .accessibilityLabel("Picker Style, current value: \(String(describing: styleSelected))")
+            .accessibilityHint("Swipe up or down to open the documentation")
             
         }
         
