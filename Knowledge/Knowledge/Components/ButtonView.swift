@@ -64,7 +64,9 @@ struct ButtonView: View {
                     )
                     
                     Text("Button Style")
+                    
                     Spacer()
+                    
                     Picker("Button Style", selection: $selectedButtonStyle) {
                         Text("Plain").tag(ButtonStyleCase.plain)
                         Text("Borderless").tag(ButtonStyleCase.borderless)
@@ -72,8 +74,11 @@ struct ButtonView: View {
                         Text("Bordered Prominent").tag(ButtonStyleCase.borderedProminent)
                     }
                     .pickerStyle(.menu)
+                    
                 }
-                .accessibilityElement(children: .combine)
+                .accessibilityElement(children: .combine) // Combine the HSTACK for the VoiceOver
+                .accessibilityLabel("Button Style, current selection \(selectedButtonStyle.rawValue)")
+                .accessibilityHint("Scroll to open documentation")
                 
                 //Button Size
                 HStack {
@@ -94,7 +99,9 @@ struct ButtonView: View {
                     }
                     .pickerStyle(.menu)
                 }
-                .accessibilityElement(children: .combine)
+                .accessibilityElement(children: .combine) // Combine the HSTACK for the VoiceOver
+                .accessibilityLabel("Button Style, current selection \(String(describing: selectedControlSize))")
+                .accessibilityHint("Scroll to open documentation")
                 
                 //ButtonRepeatBehavior
                 
@@ -138,6 +145,8 @@ struct ButtonView: View {
                     .pickerStyle(.menu)
                 }
                 .accessibilityElement(children: .combine)
+                .accessibilityLabel("Button Shape, attualmente \(String(describing: selectedButtonShapeCase))")
+                .accessibilityHint("Scorri per cambiare la forma del pulsante.")
                 
             }
             .padding(10)
