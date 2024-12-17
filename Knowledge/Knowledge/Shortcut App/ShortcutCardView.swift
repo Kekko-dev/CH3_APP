@@ -19,7 +19,7 @@ struct ShortcutCardView: View {
                .scaledToFit()
                .frame(width: 50, height: 50)
                .foregroundColor(.white)
-               .padding(.trailing, 95)
+               .padding(.trailing, 90)
            
            
            Text(title)
@@ -27,11 +27,11 @@ struct ShortcutCardView: View {
                .fontWeight(.heavy)
                .foregroundColor(.white)
                .padding(.top, 50)
-               .padding(.trailing, 89)
+               .padding(.trailing, 80)
            
        }
        .frame(width: 160, height: 150)
-       .background(RoundedRectangle(cornerRadius: 25).fill(Color.blue))
+       .background(RoundedRectangle(cornerRadius: 25).fill(Color.blue.gradient))
        
    }
 }
