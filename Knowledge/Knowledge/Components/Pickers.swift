@@ -20,7 +20,7 @@ struct Pickers: View {
     
     
     //PickerStyleEnum
-   public enum pickerStyleType{
+    public enum pickerStyleType{
         case automatic
         case wheel
         case segmented
@@ -36,9 +36,13 @@ struct Pickers: View {
         
         Section{
             HStack{
-                Link(destination: URL(string: "https://developer.apple.com/documentation/SwiftUI/Picker")!) {
-                    Image(systemName: "info.circle")
-                }
+                
+                DocumentationLink(
+                    url: URL(string: "https://developer.apple.com/documentation/SwiftUI/Picker")!,
+                    label: "More information about Picker Style documentation"
+                )
+                
+                
                 Text("Picker Style")
                 Spacer()
                 
@@ -51,9 +55,11 @@ struct Pickers: View {
                 }
                 
                 
+                
             }
+            .accessibilityElement(children: .combine)
             
-          
+            
         }
         
         .padding(.top)
@@ -61,8 +67,8 @@ struct Pickers: View {
         createPicker(value: $selectedPickerValue, style:  styleSelected)
             .padding(.top, 20)
         
-            
-    
+        
+        
         
         
         
@@ -70,8 +76,8 @@ struct Pickers: View {
 }
 
 
-    
- 
+
+
 
 #Preview {
     Pickers()

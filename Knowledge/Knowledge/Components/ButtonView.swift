@@ -58,9 +58,11 @@ struct ButtonView: View {
                 
                 //ButtonStyle Picker
                 HStack {
-                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/view/buttonstyle(_:)")!) {
-                        Image(systemName: "info.circle")
-                    }
+                    DocumentationLink(
+                        url: URL(string: "https://developer.apple.com/documentation/swiftui/view/buttonstyle(_:)")!,
+                        label: "More information about Button Style documentation"
+                    )
+                    
                     Text("Button Style")
                     Spacer()
                     Picker("Button Style", selection: $selectedButtonStyle) {
@@ -71,12 +73,15 @@ struct ButtonView: View {
                     }
                     .pickerStyle(.menu)
                 }
+                .accessibilityElement(children: .combine)
                 
                 //Button Size
                 HStack {
-                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/view/controlsize(_:)")!) {
-                        Image(systemName: "info.circle")
-                    }
+                    DocumentationLink(
+                        url: URL(string: "https://developer.apple.com/documentation/swiftui/view/controlsize(_:)")!,
+                        label: "More information about Button Size documentation"
+                    )
+                    
                     
                     Text("Button Size")
                     Spacer()
@@ -89,13 +94,17 @@ struct ButtonView: View {
                     }
                     .pickerStyle(.menu)
                 }
+                .accessibilityElement(children: .combine)
                 
                 //ButtonRepeatBehavior
                 
                 HStack {
-                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/buttonrepeatbehavior")!) {
-                        Image(systemName: "info.circle")
-                    }
+                    DocumentationLink(
+                        url: URL(string: "https://developer.apple.com/documentation/swiftui/buttonrepeatbehavior")!,
+                        label: "More information about Button Size documentation"
+                    )
+                    
+                    
                     
                     Text("Button Repeat Behavior")
                     Spacer()
@@ -107,13 +116,15 @@ struct ButtonView: View {
                     }
                     .pickerStyle(.menu)
                 }
-                
+                .accessibilityElement(children: .combine)
                 
                 //Button Shape
                 HStack {
-                    Link(destination: URL(string: "https://developer.apple.com/documentation/swiftui/buttonbordershape")!) {
-                        Image(systemName: "info.circle")
-                    }
+                    DocumentationLink(
+                        url: URL(string: "https://developer.apple.com/documentation/swiftui/buttonbordershape")!,
+                        label: "More information about Button Shape documentation"
+                    )
+                    
                     
                     Text("Button Shape")
                     Spacer()
@@ -126,7 +137,7 @@ struct ButtonView: View {
                     }
                     .pickerStyle(.menu)
                 }
-                
+                .accessibilityElement(children: .combine)
                 
             }
             .padding(10)
@@ -153,26 +164,7 @@ struct ButtonView: View {
     
 }
 
-struct DocumentationLink: View {
-    let url: URL
-    let label: String
 
-    var body: some View {
-        Image(systemName: "info.circle")
-            .foregroundColor(.blue) // Icon styling
-            .accessibilityLabel(label)
-            .accessibilityHint("Double-tap, or select Open Documentation from the rotor.")
-            .accessibilityAddTraits(.isButton)
-            .accessibilityAction(named: "Open Documentation") {
-                openLink()
-            }
-    }
-
-    // Function to open the URL
-    private func openLink() {
-        UIApplication.shared.open(url)
-    }
-}
 
 
 

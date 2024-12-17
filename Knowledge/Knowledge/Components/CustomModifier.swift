@@ -8,6 +8,45 @@
 import Foundation
 import SwiftUI
 
+
+//                              ACCESSIBILITY
+struct DocumentationLink: View {
+    let url: URL
+    let label: String
+
+    var body: some View {
+        Image(systemName: "info.circle")
+            .foregroundColor(.blue)
+            .accessibilityLabel(label)
+            .accessibilityHint("Double-tap, or select Open Documentation from the rotor.")
+            .accessibilityAddTraits(.isButton)
+            .accessibilityAction(named: "Open Documentation") {
+                openLink()
+            }
+    }
+
+    // Function to open the URL
+    private func openLink() {
+        UIApplication.shared.open(url)
+    }
+}
+
+/* Implemented this struct for having a more optimized VoiceOver */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 struct ConditionalLabelStyle: LabelStyle {
     var showIconOnly: Bool
     
@@ -229,3 +268,6 @@ extension View {
                                         DOESN'T WORK
  
  */
+
+
+

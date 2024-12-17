@@ -28,7 +28,7 @@ struct ShortcutCardView: View {
                .fontWeight(.heavy)
                .foregroundColor(.white)
                .padding(.top, 50)
-               .padding(.trailing, 80)
+               .padding(.trailing, 65)
            
        }
        .frame(width: 160, height: 150)
