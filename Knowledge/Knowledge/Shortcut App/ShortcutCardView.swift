@@ -11,7 +11,8 @@ struct ShortcutCardView: View {
    
    var icon : String
    var title : String
-   
+    var color: Color
+    
    var body: some View {
        VStack {
            Image(systemName: icon ) // Example icon
@@ -31,11 +32,11 @@ struct ShortcutCardView: View {
            
        }
        .frame(width: 160, height: 150)
-       .background(RoundedRectangle(cornerRadius: 25).fill(Color.blue.gradient))
+       .background(RoundedRectangle(cornerRadius: 25).fill(color.gradient))
        
    }
 }
 
 #Preview {
-   ShortcutCardView(icon: "button.horizontal", title: "Button")
+    ShortcutCardView(icon: "button.horizontal", title: "Button", color: .blue)
 }

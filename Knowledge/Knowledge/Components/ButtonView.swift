@@ -129,6 +129,8 @@ struct ButtonView: View {
                 
                 
             }
+            .padding(10)
+            Spacer()
             
             // Button with conditional label style
             Button {
@@ -143,7 +145,9 @@ struct ButtonView: View {
             .applyButtonShape(for: selectedButtonShapeCase)
             
         }
-        .padding()
+        
+        Spacer()
+            .padding(.bottom, 40)
     }
     
     

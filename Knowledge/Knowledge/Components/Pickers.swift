@@ -53,9 +53,15 @@ struct Pickers: View {
                 
             }
             
-            createPicker(value: $selectedPickerValue, style:  styleSelected)
+          
         }
         
+        .padding(.top)
+        
+        createPicker(value: $selectedPickerValue, style:  styleSelected)
+            .padding(.top, 20)
+        
+            
     
         
         

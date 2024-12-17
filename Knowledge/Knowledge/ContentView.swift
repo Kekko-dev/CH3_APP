@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         TabView{
             Tab("Components", systemImage: "square.3.layers.3d.top.filled") {
-                ButtonView()
+                Shortcut_ContentView()
                 }
 
 
