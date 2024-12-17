@@ -145,8 +145,8 @@ struct ButtonView: View {
                     .pickerStyle(.menu)
                 }
                 .accessibilityElement(children: .combine)
-                .accessibilityLabel("Button Shape, attualmente \(String(describing: selectedButtonShapeCase))")
-                .accessibilityHint("Scorri per cambiare la forma del pulsante.")
+                                .accessibilityLabel("Button Shape, currently \(String(describing: selectedButtonShapeCase))")
+                                .accessibilityHint("Swipe up or down to change the button shape.")
                 
             }
             .padding(10)
