@@ -29,13 +29,14 @@ struct CodeSnippetButton: View {
             """
     }
     var body: some View {
-        
-        Text(codeSnippet)
-            .font(.system(.body, design: .monospaced))
-            .padding()
-            .background(Color(.systemGray6))
-            .cornerRadius(8)
-            .textSelection(.enabled) // allows users to select and copy the code
+        ScrollView{
+            Text(codeSnippet)
+                .font(.system(.body, design: .monospaced))
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
+                .textSelection(.enabled) // allows users to select and copy the code
+        }
     }
 }
 

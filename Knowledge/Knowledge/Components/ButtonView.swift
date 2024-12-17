@@ -41,7 +41,7 @@ struct ButtonView: View {
     
     var body: some View {
         VStack {
-            //Icon selection
+            
             Section {
                 HStack{
                     Text("Button")
@@ -68,8 +68,8 @@ struct ButtonView: View {
                                 .navigationTitle("Code Snippet")
                                 .navigationBarTitleDisplayMode(.inline)
                         }
-                        .presentationDetents([.fraction(0.5)])
-                        
+                        .presentationDetents([.medium])
+                        .presentationDragIndicator(.visible)
                     }
                     
                     
@@ -215,7 +215,6 @@ struct ButtonView: View {
         
         Spacer()
             .padding(.bottom, 40)
-            .navigationTitle("Button")
         
     }
     

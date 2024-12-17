@@ -32,52 +32,85 @@ struct Pickers: View {
     //Variable for the picker style
     @State var styleSelected: pickerStyleType = .automatic
     
+    
+    @State var codeSnippetPicker: Bool = false
+    
     var body: some View {
         
-        Section{
-            HStack{
-                
-                DocumentationLink(
-                    url: URL(string: "https://developer.apple.com/documentation/SwiftUI/Picker")!,
-                    label: "More information about Picker Style documentation"
-                )
-                
-                
-                Text("Picker Style")
-                Spacer()
-                
-                Picker("Picker Style", selection: $styleSelected){
-                    Text("Automatic").tag(pickerStyleType.automatic)
-                    Text("Wheel").tag(pickerStyleType.wheel)
-                    Text("Segmented").tag(pickerStyleType.segmented)
-                    Text("Menu").tag(pickerStyleType.menu)
-                    Text("Inline").tag(pickerStyleType.inline)
+        VStack {
+            Section{
+                HStack{
+                    Text("Pickers")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .accessibilityLabel("Pickers Menu")
+                    
+                    Spacer()
+                    
+                    Link(destination: URL(string: "https://developer.apple.com/design/human-interface-guidelines/pickers")!) {
+                        Image(systemName: "doc")
+                            .accessibilityLabel("More information about Human Interface Guidelines")
+                        
+                    }
+                    Button("Code snippet",systemImage: "curlybraces"){
+                        codeSnippetPicker.toggle()
+                    }
+                    .labelStyle(.iconOnly)
+                    .sheet(isPresented: $codeSnippetPicker) {
+                        NavigationView {
+                            CodeSnippetPicker(showCodeSnippetPicker: $codeSnippetPicker, style_of_the_picker: $styleSelected)
+                                .navigationTitle("Code Snippet")
+                                .navigationBarTitleDisplayMode(.inline)
+                        }
+                        .presentationDetents([.medium])
+                        .presentationDragIndicator(.visible)
+                        
+                    }
+                }
+                        
+                    }
+                    HStack{
+                        
+                        DocumentationLink(
+                            url: URL(string: "https://developer.apple.com/documentation/SwiftUI/Picker")!,
+                            label: "More information about Picker Style documentation"
+                        )
+                        
+                        
+                        Text("Picker Style")
+                        Spacer()
+                        
+                        Picker("Picker Style", selection: $styleSelected){
+                            Text("Automatic").tag(pickerStyleType.automatic)
+                            Text("Wheel").tag(pickerStyleType.wheel)
+                            Text("Segmented").tag(pickerStyleType.segmented)
+                            Text("Menu").tag(pickerStyleType.menu)
+                            Text("Inline").tag(pickerStyleType.inline)
+                        }
+                        
+                        
+                        
+                    }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("Picker Style, current value: \(String(describing: styleSelected))")
+                    .accessibilityHint("Swipe up or down to open the documentation")
+                    
                 }
                 
+                .padding(.top)
+                
+        Spacer()
+                createPicker(value: $selectedPickerValue, style:  styleSelected)
+                    .padding(.top, 20)
+                
+                Spacer()
                 
                 
+                
+                    .navigationTitle("Pickers")
             }
-            .accessibilityElement(children: .combine)
-            .accessibilityLabel("Picker Style, current value: \(String(describing: styleSelected))")
-            .accessibilityHint("Swipe up or down to open the documentation")
-            
         }
-        
-        .padding(.top)
-        
-        createPicker(value: $selectedPickerValue, style:  styleSelected)
-            .padding(.top, 20)
-        
-        
-        
-        
-        
-            .navigationTitle("Pickers")
-    }
-}
-
-
-
+    
 
 
 #Preview {
