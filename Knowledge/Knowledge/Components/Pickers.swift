@@ -72,7 +72,7 @@ struct Pickers: View {
         
         
         
-        
+            .navigationTitle("Pickers")
     }
 }
 

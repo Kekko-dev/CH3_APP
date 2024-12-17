@@ -39,6 +39,32 @@ struct ButtonView: View {
         VStack {
             //Icon selection
             Section {
+                HStack{
+                    Text("Button")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .accessibilityLabel("Button Menu")
+                    
+                    Spacer()
+                    
+                   /* DocumentationLink(
+                        url: URL(string: "https://developer.apple.com/design/human-interface-guidelines/buttons")!,
+                        label: "More information about Human Interface Guidelines"
+                    )
+                    */
+                    
+                    Link(destination: URL(string: "https://developer.apple.com/design/human-interface-guidelines/buttons")!) {
+                        Image(systemName: "doc")
+                            .accessibilityLabel("More information about Human Interface Guidelines")
+                            
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                }
                 HStack {
                     DocumentationLink(
                         url: URL(string: "https://developer.apple.com/documentation/swiftui/labelstyle/icononly")!,
@@ -179,7 +205,9 @@ struct ButtonView: View {
         
         Spacer()
             .padding(.bottom, 40)
+            .navigationTitle("Button")
     }
+        
     
     
 }
