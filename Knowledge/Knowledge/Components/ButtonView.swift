@@ -35,6 +35,10 @@ struct ButtonView: View {
     }
     @State private var selectedButtonShapeCase: ButtonShapeCase = .capsule
     
+    
+    @State var codeSnippet: Bool = false
+    
+    
     var body: some View {
         VStack {
             //Icon selection
@@ -47,20 +51,26 @@ struct ButtonView: View {
                     
                     Spacer()
                     
-                   /* DocumentationLink(
-                        url: URL(string: "https://developer.apple.com/design/human-interface-guidelines/buttons")!,
-                        label: "More information about Human Interface Guidelines"
-                    )
-                    */
                     
                     Link(destination: URL(string: "https://developer.apple.com/design/human-interface-guidelines/buttons")!) {
                         Image(systemName: "doc")
                             .accessibilityLabel("More information about Human Interface Guidelines")
-                            
+                        
                     }
                     
-                    
-                    
+                    Button("Code snippet",systemImage: "curlybraces"){
+                        codeSnippet.toggle()
+                    }
+                    .labelStyle(.iconOnly)
+                    .sheet(isPresented: $codeSnippet) {
+                        NavigationView {
+                            CodeSnippetButton(showCodeSnippet: $codeSnippet, selectedButtonSyle: $selectedButtonStyle, selectedControlSize: $selectedControlSize, selectedButtonRepeatBehavior: $selectedButtonRepeatBehavior, selectedButtonShape: $selectedButtonShapeCase)
+                                .navigationTitle("Code Snippet")
+                                .navigationBarTitleDisplayMode(.inline)
+                        }
+                        .presentationDetents([.fraction(0.5)])
+                        
+                    }
                     
                     
                     
@@ -173,8 +183,8 @@ struct ButtonView: View {
                     .pickerStyle(.menu)
                 }
                 .accessibilityElement(children: .combine)
-                                .accessibilityLabel("Button Shape, currently \(String(describing: selectedButtonShapeCase))")
-                                .accessibilityHint("Swipe up or down to open the documentation.")
+                .accessibilityLabel("Button Shape, currently \(String(describing: selectedButtonShapeCase))")
+                .accessibilityHint("Swipe up or down to open the documentation.")
                 
             }
             .padding(10)
@@ -192,22 +202,23 @@ struct ButtonView: View {
             .applyButtonRepeatBehavior(for: selectedButtonRepeatBehavior)
             .applyButtonShape(for: selectedButtonShapeCase)
             .accessibilityElement(children: .combine)
-                        .accessibilityLabel("Add Item button")
-                        .accessibilityValue(
-                            "Icon Only: \(iconOnly ? "Enabled" : "Disabled"), " +
-                            "Style: \(selectedButtonStyle.rawValue), " +
-                            "Size: \(String(describing: selectedControlSize)), " +
-                            "Repeat Behavior: \(String(describing: selectedButtonRepeatBehavior)), " +
-                            "Shape: \(String(describing: selectedButtonShapeCase))"
-                        )
-                        .accessibilityHint("Double tap to activate.")
+            .accessibilityLabel("Add Item button")
+            .accessibilityValue(
+                "Icon Only: \(iconOnly ? "Enabled" : "Disabled"), " +
+                "Style: \(selectedButtonStyle.rawValue), " +
+                "Size: \(String(describing: selectedControlSize)), " +
+                "Repeat Behavior: \(String(describing: selectedButtonRepeatBehavior)), " +
+                "Shape: \(String(describing: selectedButtonShapeCase))"
+            )
+            .accessibilityHint("Double tap to activate.")
         }
         
         Spacer()
             .padding(.bottom, 40)
             .navigationTitle("Button")
-    }
         
+    }
+    
     
     
 }
