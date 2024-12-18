@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		6147B9042D03118A00203D72 /* Knowledge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knowledge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6147B9042D03118A00203D72 /* LumiCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LumiCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -40,7 +40,7 @@
 		6147B9052D03118A00203D72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6147B9042D03118A00203D72 /* Knowledge.app */,
+				6147B9042D03118A00203D72 /* LumiCode.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6147B9032D03118A00203D72 /* Knowledge */ = {
+		6147B9032D03118A00203D72 /* LumiCode */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6147B9122D03118A00203D72 /* Build configuration list for PBXNativeTarget "Knowledge" */;
+			buildConfigurationList = 6147B9122D03118A00203D72 /* Build configuration list for PBXNativeTarget "LumiCode" */;
 			buildPhases = (
 				6147B9002D03118A00203D72 /* Sources */,
 				6147B9012D03118A00203D72 /* Frameworks */,
@@ -63,11 +63,11 @@
 			fileSystemSynchronizedGroups = (
 				6147B9062D03118A00203D72 /* Knowledge */,
 			);
-			name = Knowledge;
+			name = LumiCode;
 			packageProductDependencies = (
 			);
 			productName = Knowledge;
-			productReference = 6147B9042D03118A00203D72 /* Knowledge.app */;
+			productReference = 6147B9042D03118A00203D72 /* LumiCode.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6147B8FF2D03118A00203D72 /* Build configuration list for PBXProject "Knowledge" */;
+			buildConfigurationList = 6147B8FF2D03118A00203D72 /* Build configuration list for PBXProject "LumiCode" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6147B9032D03118A00203D72 /* Knowledge */,
+				6147B9032D03118A00203D72 /* LumiCode */,
 			);
 		};
 /* End PBXProject section */
@@ -305,7 +305,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6147B8FF2D03118A00203D72 /* Build configuration list for PBXProject "Knowledge" */ = {
+		6147B8FF2D03118A00203D72 /* Build configuration list for PBXProject "LumiCode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6147B9102D03118A00203D72 /* Debug */,
@@ -314,7 +314,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6147B9122D03118A00203D72 /* Build configuration list for PBXNativeTarget "Knowledge" */ = {
+		6147B9122D03118A00203D72 /* Build configuration list for PBXNativeTarget "LumiCode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6147B9132D03118A00203D72 /* Debug */,
