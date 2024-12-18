@@ -34,7 +34,7 @@ struct ShortcutCardView: View {
        .frame(width: 160, height: 150)
        .background(RoundedRectangle(cornerRadius: 25).fill(color.gradient))
        .accessibilityElement(children: .combine)
-       .accessibilityLabel("Card for Button with \(icon) Icon on the top-left corner and title \(title) with Color \(color)")
+       .accessibilityLabel("Card for Button with \(icon) Icon and title \(title) with Color \(color)")
    }
 }
 
