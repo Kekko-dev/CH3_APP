@@ -9,11 +9,18 @@ import SwiftUI
 
 struct Settings: View {
     var body: some View {
-        List{
-            Text("Color Scheme")
-            Text("Accent Color")
-            Text("Font Size")
-            Text("App Icon")
+        VStack{
+            Image(systemName: "rainbow")
+                .resizable()
+                .scaledToFit()
+                .symbolRenderingMode(.multicolor)
+                .symbolEffect(.variableColor.reversing)
+                .foregroundStyle(.pink)
+                .padding(50)
+            
+            Text("Will come in the future!")
+                .font(.largeTitle)
+                .fontWeight(.bold)
         }
     }
 }

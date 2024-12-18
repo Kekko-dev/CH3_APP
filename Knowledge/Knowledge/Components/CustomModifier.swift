@@ -15,14 +15,28 @@ struct DocumentationLink: View {
     let label: String
 
     var body: some View {
-        Image(systemName: "info.circle")
-            .foregroundColor(.blue)
-            .accessibilityLabel(label)
-            .accessibilityHint("Double-tap, or select Open Documentation from the rotor.")
-            .accessibilityAddTraits(.isButton)
-            .accessibilityAction(named: "Open Documentation") {
-                openLink()
-            }
+        /*
+         Image(systemName: "info.circle")
+         .foregroundColor(.blue)
+         .accessibilityLabel(label)
+         .accessibilityHint("Double-tap, or select Open Documentation from the rotor.")
+         .accessibilityAddTraits(.isButton)
+         .accessibilityAction(named: "Open Documentation") {
+         openLink()
+         }
+         */
+        
+        Button("Button",systemImage: "info.circle"){
+            openLink()
+        }
+        .labelStyle(.iconOnly)
+        .accessibilityLabel(label)
+        .accessibilityHint("Double-tap, or select Open Documentation from the rotor.")
+        .accessibilityAddTraits(.isButton)
+        .accessibilityAction(named: "Open Documentation") {
+            openLink()
+            
+        }
     }
 
     // Function to open the URL

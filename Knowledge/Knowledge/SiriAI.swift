@@ -9,7 +9,19 @@ import SwiftUI
 
 struct SiriAI: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Image(systemName: "rainbow")
+                .resizable()
+                .scaledToFit()
+                .symbolRenderingMode(.multicolor)
+                .symbolEffect(.variableColor.reversing)
+                .foregroundStyle(.pink)
+                .padding(50)
+            
+            Text("Will come in the future!")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+        }
     }
 }
 
