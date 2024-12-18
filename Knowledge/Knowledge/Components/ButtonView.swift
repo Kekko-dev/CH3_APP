@@ -113,7 +113,7 @@ struct ButtonView: View {
                     .pickerStyle(.menu)
                     
                 }
-                //.accessibilityElement(children: .combine) // Combine the HSTACK for the VoiceOver
+                .accessibilityElement(children: .combine) // Combine the HSTACK for the VoiceOver
                 .accessibilityLabel("Button Style, current selection \(selectedButtonStyle.rawValue)")
                 .accessibilityHint("Swipe up or down to open the documentation.")
                 
